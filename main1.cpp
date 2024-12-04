@@ -21,18 +21,21 @@
 
 using namespace std;
 
+//Constant Declaration
 const int BOARD_ROWS = 15;
 const int BOARD_COLS = 15;
 const int BOARD_SIZE = 56;
 
 char board[BOARD_ROWS][BOARD_COLS];
 
+//Structure having the piece for each player
 struct Piece {
     int position;
     bool in_play;
     bool at_home;
 };
 
+//structure that has the players information
 struct Player {
     string name;
     bool isComputer;
@@ -42,6 +45,7 @@ struct Player {
     bool savedGame;
 };
 
+//Initializing the first state of the board
 void initializeBoard() {
     for (int i = 0; i < BOARD_ROWS; ++i) {
         for (int j = 0; j < BOARD_COLS; ++j) {
@@ -50,6 +54,7 @@ void initializeBoard() {
     }
 }
 
+//Displaying the board informations
 void displayBoard(const vector<Player>& players) {
     initializeBoard();
     
@@ -74,6 +79,7 @@ void displayBoard(const vector<Player>& players) {
     cout << "=================================\n";
 }
 
+//The Random function that rolls the die
 int rollDice() {
     return (rand() % 6) + 1;
 }
